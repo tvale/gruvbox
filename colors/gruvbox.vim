@@ -115,6 +115,14 @@ let s:gb.bright_purple  = ['#d3869b', 175]     " 211-134-155
 let s:gb.bright_aqua    = ['#8ec07c', 108]     " 142-192-124
 let s:gb.bright_orange  = ['#fe8019', 208]     " 254-128-25
 
+let s:gb.tvale_red      = ['#d75f5e', 167]
+let s:gb.tvale_green    = ['#afaf00', 142]
+let s:gb.tvale_yellow   = ['#ffaf00', 214]
+let s:gb.tvale_blue     = ['#87afaf', 109]
+let s:gb.tvale_purple   = ['#d787af', 175]
+let s:gb.tvale_aqua     = ['#87af87', 108]
+let s:gb.tvale_orange   = ['#ff8700', 208]
+
 let s:gb.neutral_red    = ['#cc241d', 124]     " 204-36-29
 let s:gb.neutral_green  = ['#98971a', 106]     " 152-151-26
 let s:gb.neutral_yellow = ['#d79921', 172]     " 215-153-33
@@ -169,7 +177,7 @@ let s:none = ['NONE', 'NONE']
 " determine relative colors
 if s:is_dark
   let s:bg0  = s:gb.dark0
-  if g:gruvbox_contrast_dark == 'soft'
+  if g:gruvbox_contrast_dark == 'soft' || g:gruvbox_contrast_dark == 'tvale'
     let s:bg0  = s:gb.dark0_soft
   elseif g:gruvbox_contrast_dark == 'hard'
     let s:bg0  = s:gb.dark0_hard
@@ -190,13 +198,23 @@ if s:is_dark
 
   let s:fg4_256 = s:gb.light4_256
 
-  let s:red    = s:gb.bright_red
-  let s:green  = s:gb.bright_green
-  let s:yellow = s:gb.bright_yellow
-  let s:blue   = s:gb.bright_blue
-  let s:purple = s:gb.bright_purple
-  let s:aqua   = s:gb.bright_aqua
-  let s:orange = s:gb.bright_orange
+  if g:gruvbox_contrast_dark == 'tvale'
+    let s:red    = s:gb.tvale_red
+    let s:green  = s:gb.tvale_green
+    let s:yellow = s:gb.tvale_yellow
+    let s:blue   = s:gb.tvale_blue
+    let s:purple = s:gb.tvale_purple
+    let s:aqua   = s:gb.tvale_aqua
+    let s:orange = s:gb.tvale_orange
+  else
+    let s:red    = s:gb.bright_red
+    let s:green  = s:gb.bright_green
+    let s:yellow = s:gb.bright_yellow
+    let s:blue   = s:gb.bright_blue
+    let s:purple = s:gb.bright_purple
+    let s:aqua   = s:gb.bright_aqua
+    let s:orange = s:gb.bright_orange
+  endif
 else
   let s:bg0  = s:gb.light0
   if g:gruvbox_contrast_light == 'soft'
